@@ -5,6 +5,10 @@ public class BirthDayException extends Exception{
         this.error = error;
         System.out.println(getError());
     }
+
+    public BirthDayException() {
+    }
+
     public String getError() {
         return error;
     }

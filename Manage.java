@@ -2,6 +2,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 import exception.BirthDayException;
 import exception.EmailException;
@@ -61,6 +62,7 @@ public class Manage {
 
                         } catch (Exception e) {
                             throw new BirthDayException("Wrong syntax, enter again please.");
+                            
                         }
                         break;
                     }
@@ -140,5 +142,20 @@ public class Manage {
             }
 
         }
+    }
+    public Employee deleteEmployee(String ID){
+        Employee employee = employees.stream().filter(o -> o.getID().equals(ID)).findFirst().orElse(null);
+        if(employee != null){
+            employees.remove(employee);
+            return employee;
+        }
+        else{
+            System.out.println("Valid dose not exit.");
+            return null;
+        }
+    }
+
+    public void showAllExperienceByType(String employeeType){
+        employees.stream().filter(o -> o.getEmployeeType().equals(employeeType)).collect(Collectors.toList()).forEach(o -> System.out.println(o));
     }
 }
