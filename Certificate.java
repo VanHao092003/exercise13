@@ -9,6 +9,9 @@ public class Certificate {
         this.certificateRank = certificateRank;
         this.certificatedDate = certificatedDate;
     }
+    public Certificate(){
+        
+    }
     public String getCertificateID() {
         return certificateID;
     }

@@ -7,9 +7,8 @@ public class Experience extends Employee{
 
     
 
-    public Experience(String iD, String fullname, Date birthDay, String phone, String email, String employeeType,
-            int employeeCount, List<Certificate> certificates, int experienceInYear, String proSkill) {
-        super(iD, fullname, birthDay, phone, email, employeeType, certificates);
+    public Experience(String ID, String fullname, Date birthDay, String phone, String email, String employeeType, List<Certificate> certificates, int experienceInYear, String proSkill) {
+        super(ID, fullname, birthDay, phone, email, employeeType, certificates);
         this.experienceInYear = experienceInYear;
         this.proSkill = proSkill;
     }

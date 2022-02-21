@@ -21,6 +21,7 @@ public class Manage {
     }
 
     public void fix(String ID) throws BirthDayException, PhoneException, EmailException{
+
         Employee employee = this.employees.stream().filter(o -> o.getID().equals(ID)).findFirst().orElse(null);
         if(employee != null){
             System.out.println("You are want to fix: ");
@@ -62,7 +63,6 @@ public class Manage {
 
                         } catch (Exception e) {
                             throw new BirthDayException("Wrong syntax, enter again please.");
-                            
                         }
                         break;
                     }
@@ -94,9 +94,9 @@ public class Manage {
                     }case "5":{
                         System.out.println("old employee type: " + employee.getEmployeeType());
                         System.out.println("-----choose-----");
-                        System.out.println("Press 1: setup -> experience.");
-                        System.out.println("Press 2: setup -> fresher.");
-                        System.out.println("Press 3: setup -> intern.");
+                        System.out.println("Press 0: setup -> experience.");
+                        System.out.println("Press 1: setup -> fresher.");
+                        System.out.println("Press 2: setup -> intern.");
                         System.out.print("new employee: "); String employeeType = scanner.nextLine();
                         employee.setEmployeeType(employeeType);
                         break;
@@ -143,6 +143,10 @@ public class Manage {
 
         }
     }
+    public void countNumberEmployee(){
+        int count = employees.size();
+        System.out.println("Total number of employee: " + count);
+    }
     public Employee deleteEmployee(String ID){
         Employee employee = employees.stream().filter(o -> o.getID().equals(ID)).findFirst().orElse(null);
         if(employee != null){
@@ -157,5 +161,27 @@ public class Manage {
 
     public void showAllExperienceByType(String employeeType){
         employees.stream().filter(o -> o.getEmployeeType().equals(employeeType)).collect(Collectors.toList()).forEach(o -> System.out.println(o));
+    }
+    
+    public void showAllEmployeeAreExperience(){
+        for(Employee employee : employees){
+            if (employee instanceof Experience) {
+                System.out.println(employee);
+            }
+        }
+    }
+    public void showAllEmployeeAreFresher(){
+        for(Employee employee : employees){
+            if(employee instanceof Fresher ){
+                System.out.println(employee);
+            }
+        }
+    }
+    public void showAllEmployeeAreIntern(){
+        for(Employee employee : employees){
+            if (employee instanceof Intern) {
+                System.out.println(employee);
+            }
+        }
     }
 }

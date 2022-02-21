@@ -9,7 +9,6 @@ public class Employee{
     protected String phone; 
     protected String email;
     protected String employeeType;
-    protected int employeeCount;
     protected List<Certificate> certificates;
 
     public Employee(){
@@ -21,7 +20,7 @@ public class Employee{
     }
 
     public Employee(String iD, String fullname, Date birthDay, String phone, String email, String employeeType, List<Certificate> certificates) {
-        ID = iD;
+        this.ID = iD;
         this.fullname = fullname;
         this.birthDay = birthDay;
         this.phone = phone;
@@ -73,12 +72,6 @@ public class Employee{
     }
     public void setEmployeeType(String employeeType) {
         this.employeeType = employeeType;
-    }
-    public int getEmployeeCount() {
-        return employeeCount;
-    }
-    public void setEmployeeCount(int employeeCount) {
-        this.employeeCount = employeeCount;
     }
 
     public void addCertificate(Certificate certificate){
