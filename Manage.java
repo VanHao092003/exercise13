@@ -56,40 +56,56 @@ public class Manage {
                         System.out.println("old birth day: " + employee.getBirthDay());
                         System.out.print("new birth day: "); String birthDay = scanner.nextLine();
                         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-                        try {
-                            java.util.Date date = dateFormat.parse(birthDay);
-                            employee.setBirthDay(date);
-                            System.out.println("You just successfully setup.");
-                        } catch (Exception e) {
-                            BirthDayException birthDayException = new BirthDayException("Wrong syntax. Enter again please.");
-                            System.out.println(birthDayException.getError());
-                            System.out.println(e.getMessage());
+                        enter: {
+                            for(;;){
+                                try {
+                                    java.util.Date date = dateFormat.parse(birthDay);
+                                    employee.setBirthDay(date);
+                                    System.out.println("You just successfully setup.");
+                                    break enter;
+                                } catch (Exception e) {
+                                    BirthDayException birthDayException = new BirthDayException("Wrong syntax. Enter again please.");
+                                    System.out.println(birthDayException.getError());
+                                }
+                            }
                         }
                         break;
                     }
                     case "3":{
                         System.out.println("old phone: " + employee.getPhone());
                         System.out.print("new phone: "); String phone = scanner.nextLine();
-                        try {
-                            if(phone.length() != 10){
-                                employee.setPhone(phone);
-                                throw new PhoneException();
+                        enter: {
+                            for(;;){
+                                try {
+                                    if(phone.length() != 10){
+                                        employee.setPhone(phone);
+                                        throw new PhoneException();
+                                    }
+                                    System.out.println("You just successfully setup.");
+                                    break enter;
+                                } catch (Exception e) {
+                                    System.out.println("Wrong syntax. Enter again please.");
+                                }
                             }
-                            System.out.println("You just successfully setup.");
-                        } catch (Exception e) {
                         }
                         break;
                     }case "4":{
                         System.out.println("old email: " + employee.getEmail());
                         System.out.print("new email: "); String email = scanner.nextLine();
-                        try {
-                            String[] string = email.split("@");
-                            if(string[1] != "gmail.com"){
-                                employee.setEmail(email);
-                                throw new EmailException();
+                        enter:{
+                            for(;;){
+                                try {
+                                    String[] string = email.split("@");
+                                    if(string[1] != "gmail.com"){
+                                        employee.setEmail(email);
+                                        throw new EmailException();
+                                    }
+                                    System.out.println("You just successfully setup.");
+                                    break enter;
+                                } catch (Exception e) {
+                                    System.out.println("Wrong syntax. Enter again please.");
+                                }
                             }
-                            System.out.println("You just successfully setup.");
-                        } catch (Exception e) {
                         }
                         break;
                     }case "5":{
@@ -141,7 +157,6 @@ public class Manage {
                         break;
                 }
             }
-
         }
     }
     public void countNumberEmployee(){
