@@ -24,20 +24,11 @@ public class Manage {
 
         Employee employee = this.employees.stream().filter(o -> o.getID().equals(ID)).findFirst().orElse(null);
         if(employee != null){
-            System.out.println("You are want to fix: ");
-            System.out.println("--------------------------");
-            System.out.println("1 : name");
-            System.out.println("2 : age");
-            System.out.println("3 : birth day");
-            System.out.println("4 : phone");
-            System.out.println("5 : email");
-            System.out.println("6 : employee type");
-            System.out.println("7 : certificates");
             while (true) {
                 System.out.println("You are want to fix: ");
                 System.out.println("--------------------------");
                 System.out.println("1 : name");
-                System.out.println("2 : birth day");
+                System.out.println("2: birth day");
                 System.out.println("3 : phone");
                 System.out.println("4 : email");
                 System.out.println("5 : employee type");
