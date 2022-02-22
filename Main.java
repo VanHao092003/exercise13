@@ -26,22 +26,35 @@ public class Main {
                 case "1":{
                     System.out.print("ID: "); String ID = scanner.nextLine();
                     System.out.print("Fullname: "); String fullname = scanner.nextLine();
-                    System.out.print("Birth day: "); String birthDayInput = scanner.nextLine();
                     DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                     Date birthDay = null;
-                    try {
-                        birthDay = dateFormat.parse(birthDayInput);
-                    } catch (Exception e) {
-                        BirthDayException exception = new BirthDayException("Wrong syntax, enter again please.");
-                        System.out.println("Error: " + exception.getError());
-                    }
-                    System.out.print("Phone: "); String phone = scanner.nextLine();
-                    try {
-                        if(phone.length() != 10){
-                            throw new PhoneException();
+                    enter:{
+                        for(;;){
+                            try {
+                                System.out.print("Birth day: "); String birthDayInput = scanner.nextLine();
+                                birthDay = dateFormat.parse(birthDayInput);
+                                break enter;
+                            } catch (Exception e) {
+                                BirthDayException exception = new BirthDayException("Wrong syntax, enter again please.");
+                                System.out.println("Error: " + exception.getError());
+                            }
                         }
-                    } catch (Exception e) {
-                        System.out.println("Wrong syntax. Enter again please.");
+                    }
+                    String phone = "";
+                    enter: {
+                        for(;;){
+                            System.out.print("Phone: "); phone = scanner.nextLine();
+                            try {
+                                if(phone.length() != 10){
+                                    throw new PhoneException();
+                                }else {
+                                    break enter;
+                                }
+                            } catch (Exception e) {
+                                System.out.println("Wrong syntax. Enter again please.");
+                            }
+
+                        }
                     }
                     String email = "";
                     enter:{
@@ -83,7 +96,7 @@ public class Main {
                         numberCertificate--;
                     }
                     System.out.print("Employee type: "); String employeeType = scanner.nextLine();
-                    if(employeeType == "0"){
+                    if(employeeType.equals("0")){
                         employeeType = "Experience";
                         System.out.print("Experience in year: "); int experienceInYear = scanner.nextInt(); scanner.nextLine();
                         System.out.print("Pro skill: "); String proSkill = scanner.nextLine();
@@ -91,7 +104,7 @@ public class Main {
                         System.out.println(experience.toString());
                         manage.addEmployee(experience);
                         manage.countNumberEmployee();
-                    } else if(employeeType == "1") {
+                    } else if(employeeType.equals("1")) {
                         employeeType = "Fresher";
                         System.out.print("Graduation date: "); String graduationDate = scanner.nextLine();
                         System.out.print("GraduationRank : "); String graduationRank = scanner.nextLine();
@@ -101,7 +114,7 @@ public class Main {
                         manage.addEmployee(fresher);
                         manage.countNumberEmployee();
 
-                    } else if (employeeType == "2"){
+                    } else if (employeeType.equals("2")){
                         employeeType = "Intern";
                         System.out.print("Majors: "); String majors = scanner.nextLine();
                         System.out.print("Semester: "); int semester = scanner.nextInt();
