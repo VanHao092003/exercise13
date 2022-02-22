@@ -90,5 +90,4 @@ public class Employee{
         certificates.removeAll(certificates);
         System.out.println("delete successfully.");
     }
-    
 }

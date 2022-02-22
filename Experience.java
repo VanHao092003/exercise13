@@ -36,6 +36,6 @@ public class Experience extends Employee{
 
     @Override
     public String toString() {
-        return "information of experience[ "+ " ID: "+ ID + ", Fullname: " + fullname + ", Birth day: " +  birthDay + ", Phone: " + phone + ", Email: " + email + ", Experience in year: " + experienceInYear + ", Pro skill: " + proSkill + " ]";
+        return "information of experience[ "+ " ID: "+ ID + ", Fullname: " + fullname + ", Birth day: " +  birthDay + ", Phone: " + phone + ", Email: " + email + "Certificates: " + certificates +  ", Experience in year: " + experienceInYear + ", Pro skill: " + proSkill + " ]";
     }
 }

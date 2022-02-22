@@ -123,7 +123,6 @@ public class Main {
                         System.out.println(intern.toString());
                         manage.addEmployee(intern);
                         manage.countNumberEmployee();
-
                     }
                     break;
                 }

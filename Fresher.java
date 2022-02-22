@@ -51,6 +51,6 @@ public class Fresher extends Employee{
 
     @Override
     public String toString() {
-        return "information of Fresher [ "+ " ID: "+ ID + ", Fullname: " + fullname + ", Birth day: " +  birthDay + ", Phone: " + phone + ", Email: " + email + ", Graduation date: " + graduationDate + ", Graduation rank: " + graduationRank + ", Education: " + education + " ]";
+        return "information of Fresher [ "+ " ID: "+ ID + ", Fullname: " + fullname + ", Birth day: " +  birthDay + ", Phone: " + phone + ", Email: " + email + "Certificates: " + certificates + ", Graduation date: " + graduationDate + ", Graduation rank: " + graduationRank + ", Education: " + education + " ]";
     }
 }
