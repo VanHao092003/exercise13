@@ -60,8 +60,9 @@ public class Manage {
                             java.util.Date date = dateFormat.parse(birthDay);
                             employee.setBirthDay(date);
                             System.out.println("You just successfully setup.");
-                            throw new BirthDayException("Wrong syntax, enter again please.");
                         } catch (Exception e) {
+                            BirthDayException birthDayException = new BirthDayException("Wrong syntax. Enter again please.");
+                            System.out.println(birthDayException.getError());
                             System.out.println(e.getMessage());
                         }
                         break;
@@ -70,13 +71,12 @@ public class Manage {
                         System.out.println("old phone: " + employee.getPhone());
                         System.out.print("new phone: "); String phone = scanner.nextLine();
                         try {
-                            if(phone.length() == 10){
+                            if(phone.length() != 10){
                                 employee.setPhone(phone);
-                                System.out.println("You just successfully setup.");
-                                throw new PhoneException("Wrong syntax, enter again please.");
+                                throw new PhoneException();
                             }
+                            System.out.println("You just successfully setup.");
                         } catch (Exception e) {
-                            System.out.println(e.getMessage());
                         }
                         break;
                     }case "4":{
@@ -84,13 +84,12 @@ public class Manage {
                         System.out.print("new email: "); String email = scanner.nextLine();
                         try {
                             String[] string = email.split("@");
-                            if(string[1] == "gmail.com"){
+                            if(string[1] != "gmail.com"){
                                 employee.setEmail(email);
-                                System.out.println("You just successfully setup.");
+                                throw new EmailException();
                             }
-                            throw new EmailException("Wrong syntax, enter again please.");
+                            System.out.println("You just successfully setup.");
                         } catch (Exception e) {
-                            System.out.println(e.getMessage());
                         }
                         break;
                     }case "5":{

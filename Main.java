@@ -20,6 +20,7 @@ public class Main {
             System.out.println("5: To show all fresher.");
             System.out.println("6: To show all Intern.");
             System.out.println("7: To exit.");
+            System.out.print("Choose: ");
             String choose = scanner.nextLine();
             switch (choose) {
                 case "1":{
@@ -36,21 +37,39 @@ public class Main {
                     }
                     System.out.print("Phone: "); String phone = scanner.nextLine();
                     try {
-                        if(phone.length() == 10){
+                        if(phone.length() != 10){
+                            throw new PhoneException();
                         }
                     } catch (Exception e) {
-                        PhoneException exception = new PhoneException("Wrong syntax, enter again please.");
-                        System.out.println("Error: " + exception.getError());
+                        System.out.println("Wrong syntax. Enter again please.");
                     }
-                    System.out.print("Email: "); String email = scanner.nextLine();
-                    try {
-                        String[] string = email.split("@");
-                        if(string[1] == "gmail.com"){
-                            System.out.println("You just successfully setup.");
+                    String email = "";
+                    enter:{
+                        for(;;){
+                            System.out.print("Email: "); email = scanner.nextLine();
+                            try {
+                                String[] string = email.split("@");
+                                String string1 = "gmail.com";
+                                if(string[1].equals(string1) == false){
+                                    throw new EmailException();
+                                }
+                                else{
+                                    break enter;
+                                }
+                            } catch (Exception e) {
+                                System.out.println("Wrong syntax. Enter again please.");
+                            }
                         }
-                    } catch (Exception e) {
-                        EmailException emailException = new EmailException("Wrong syntax, enter again please.");
-                        System.out.println("Error: " + emailException.getError());
+                        // System.out.print("Email: "); email = scanner.nextLine();
+                        // try {
+                        //     String[] string = email.split("@");
+                        //     if(string[1] != "gmail.com"){
+                        //         throw new EmailException();
+                        //     }
+                        // } catch (Exception e) {
+                        //     System.out.println("Wrong syntax. Enter again please.");
+                        //     break enter;
+                        // }
                     }
                     System.out.print("Number certificates: "); int numberCertificate = scanner.nextInt(); scanner.nextLine();
                     while (numberCertificate > 0) {

@@ -3,8 +3,8 @@ package exception;
 public class EmailException extends Exception{
     private String error;
 
-    public EmailException(String error) {
-        this.error = error;
+    public EmailException() {
+        getError();
     }
 
     public String getError() {
@@ -12,6 +12,7 @@ public class EmailException extends Exception{
     }
 
     public void setError(String error) {
+        error = "Wrong syntax. Enter again please.";
         this.error = error;
     }
     
