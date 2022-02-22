@@ -47,6 +47,6 @@ public class Intern extends Employee{
 
     @Override
     public String toString() {
-        return "information of experience[ "+ " ID: "+ ID + ", Fullname: " + fullname + ", Birth day: " +  birthDay + ", Phone: " + phone + ", Email: " + email + "Certificates: " + certificates + ", Majors: " + majors + ", Semester: " + semester + ", University name: " + universityName+ " ]";
+        return "information of experience[ "+ " ID: "+ ID + ", Fullname: " + fullname + ", Birth day: " +  birthDay + ", Phone: " + phone + ", Email: " + email + ", Certificates: " + certificates.toString() + ", Majors: " + majors + ", Semester: " + semester + ", University name: " + universityName+ " ]";
     }
 }

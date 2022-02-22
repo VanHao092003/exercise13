@@ -135,7 +135,6 @@ public class Main {
                     System.out.print("Enter ID of employee: "); String ID = scanner.nextLine();
                     System.out.println(manage.deleteEmployee(ID));
                     manage.countNumberEmployee();
-
                     break;
                 }
                 case "4":{

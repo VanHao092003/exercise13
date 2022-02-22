@@ -38,7 +38,7 @@ public class Certificate {
     }
     @Override
     public String toString() {
-        return "";
-    }
+        return "information of certificates [ " + "Certificate ID: " + certificateID + ", Certificate name: " + certificateName + ", Certificate rank: " + certificateRank + ", Certificate date: " + certificatedDate + " ]";
+    } 
     
 }
