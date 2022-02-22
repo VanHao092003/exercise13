@@ -5,7 +5,6 @@ public class PhoneException extends Exception{
 
     public PhoneException(String error) {
         this.error = error;
-        System.out.println(getError());
     }
 
     public String getError() {

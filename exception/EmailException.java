@@ -5,7 +5,6 @@ public class EmailException extends Exception{
 
     public EmailException(String error) {
         this.error = error;
-        System.out.println(getError());
     }
 
     public String getError() {

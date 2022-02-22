@@ -60,9 +60,9 @@ public class Manage {
                             java.util.Date date = dateFormat.parse(birthDay);
                             employee.setBirthDay(date);
                             System.out.println("You just successfully setup.");
-
-                        } catch (Exception e) {
                             throw new BirthDayException("Wrong syntax, enter again please.");
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
                         }
                         break;
                     }
@@ -73,9 +73,10 @@ public class Manage {
                             if(phone.length() == 10){
                                 employee.setPhone(phone);
                                 System.out.println("You just successfully setup.");
+                                throw new PhoneException("Wrong syntax, enter again please.");
                             }
                         } catch (Exception e) {
-                            throw new PhoneException("Wrong syntax, enter again please.");
+                            System.out.println(e.getMessage());
                         }
                         break;
                     }case "4":{
@@ -85,10 +86,11 @@ public class Manage {
                             String[] string = email.split("@");
                             if(string[1] == "gmail.com"){
                                 employee.setEmail(email);
+                                System.out.println("You just successfully setup.");
                             }
-                            System.out.println("You just successfully setup.");
-                        } catch (Exception e) {
                             throw new EmailException("Wrong syntax, enter again please.");
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
                         }
                         break;
                     }case "5":{

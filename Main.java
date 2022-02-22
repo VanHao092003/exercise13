@@ -2,7 +2,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
-
 import exception.BirthDayException;
 import exception.EmailException;
 import exception.PhoneException;
@@ -32,21 +31,26 @@ public class Main {
                     try {
                         birthDay = dateFormat.parse(birthDayInput);
                     } catch (Exception e) {
-                        throw new BirthDayException("Wrong syntax, enter again please.");
+                        BirthDayException exception = new BirthDayException("Wrong syntax, enter again please.");
+                        System.out.println("Error: " + exception.getError());
                     }
                     System.out.print("Phone: "); String phone = scanner.nextLine();
                     try {
-                        if(phone.length() == 10);
+                        if(phone.length() == 10){
+                        }
                     } catch (Exception e) {
-                        throw new PhoneException("Wrong syntax, enter again please.");
+                        PhoneException exception = new PhoneException("Wrong syntax, enter again please.");
+                        System.out.println("Error: " + exception.getError());
                     }
                     System.out.print("Email: "); String email = scanner.nextLine();
                     try {
                         String[] string = email.split("@");
-                        if(string[1] == "gmail.com"){}
-                        System.out.println("You just successfully setup.");
+                        if(string[1] == "gmail.com"){
+                            System.out.println("You just successfully setup.");
+                        }
                     } catch (Exception e) {
-                        throw new EmailException("Wrong syntax, enter again please.");
+                        EmailException emailException = new EmailException("Wrong syntax, enter again please.");
+                        System.out.println("Error: " + emailException.getError());
                     }
                     System.out.print("Number certificates: "); int numberCertificate = scanner.nextInt(); scanner.nextLine();
                     while (numberCertificate > 0) {
